@@ -6,9 +6,9 @@ import Text.Read (readMaybe)
 main :: IO ()
 main = do
     input <- getLine
-    let eq = createEquation input
-    case eq of
-        Just a -> print $ solve a
+    let equation = createEquation input
+    case equation of
+        Just eq -> print $ solve eq
         Nothing -> error "Error while parsing"
 
 parseThreeNumbers :: String -> Maybe (Double, Double, Double)

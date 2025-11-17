@@ -4,19 +4,15 @@ github:              "ruzen42/quad-solver"
 license:             BSD-3-Clause
 author:              "Jaroslav Mihajlenko"
 maintainer:          "malledeferlive@gmail.com"
-copyright:           "GPLv3"
+copyright:           BSD-3-Clause
 
 extra-source-files:
 - README.md
 - CHANGELOG.md
 
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
+synopsis:            Simple quad equation solver
+category:            Science
 
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
 description:         Please see the README on GitHub at <https://github.com/ruzen42/quad-solver#readme>
 
 dependencies:
@@ -57,3 +53,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - quad-solver
+    - HUnit
