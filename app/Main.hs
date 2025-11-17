@@ -7,7 +7,7 @@ main :: IO ()
 main = do
     input <- getLine
     let equation = createEquation input
-    case equation o
+    case equation of
         Just eq -> print $ solve eq
         Nothing -> error "Error while parsing"
 
