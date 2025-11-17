@@ -14,6 +14,7 @@ import SolveQuad
 main = $defaultMainGenerator
 
 x @?~ y = assertApproxEqual "" epsilon y x where epsilon = 0.000001
+infix 1 @?~
 
 case_twoRealRoots =
     case solve Equation{a = 1, b = -5, c = 6} of
