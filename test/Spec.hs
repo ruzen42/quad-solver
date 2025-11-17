@@ -1,6 +1,3 @@
-Certainly, here is the Haskell test module translated into English.
-Haskell
-
 module Main (main) where
 
 import SolveQuad
