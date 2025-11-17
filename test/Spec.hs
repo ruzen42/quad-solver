@@ -1,3 +1,6 @@
+Certainly, here is the Haskell test module translated into English.
+Haskell
+
 module Main (main) where
 
 import SolveQuad
@@ -20,10 +23,10 @@ testTwoRealRoots = TestCase $
     case actual of
         Two r1 r2 ->
             let actualRoots = sort [r1, r2]
-            in assertBool "Корни не совпадают" $
+            in assertBool "Roots do not match" $
                (actualRoots !! 0) ~= (expectedRoots !! 0) &&
                (actualRoots !! 1) ~= (expectedRoots !! 1)
-        _ -> assertFailure "Ожидалось два корня (Two), получено другое"
+        _ -> assertFailure "Expected two roots (Two), got something else"
 
 testOneRealRoot :: Test
 testOneRealRoot = TestCase $
@@ -32,8 +35,8 @@ testOneRealRoot = TestCase $
         actual = solve eq
     in
     case actual of
-        One r -> assertBool "Корень не равен 2.0" (r ~= 2.0)
-        _ -> assertFailure "Ожидался один корень (One), получено другое"
+        One r -> assertBool "Root is not equal to 2.0" (r ~= 2.0)
+        _ -> assertFailure "Expected one root (One), got something else"
 
 testComplexRoots :: Test
 testComplexRoots = TestCase $
@@ -43,9 +46,9 @@ testComplexRoots = TestCase $
     in
     case actual of
         Complex real imag ->
-            assertBool "Комплексные корни неверны: ожидалось 0.0 ± 2.0i" $
+            assertBool "Complex roots are incorrect: expected 0.0 ± 2.0i" $
                 (real ~= 0.0) && (imag ~= 2.0)
-        _ -> assertFailure "Ожидались комплексные корни (Complex), получено другое"
+        _ -> assertFailure "Expected complex roots (Complex), got something else"
 
 
 testLinearCase :: Test
@@ -55,8 +58,8 @@ testLinearCase = TestCase $
         actual = solve eq
     in
     case actual of
-        One r -> assertBool "Корень не равен 5.0" (r ~= 5.0)
-        _ -> assertFailure "Ожидался один корень (One), получено другое"
+        One r -> assertBool "Root is not equal to 5.0" (r ~= 5.0)
+        _ -> assertFailure "Expected one root (One), got something else"
 
 testNoSolution :: Test
 testNoSolution = TestCase $
@@ -65,8 +68,8 @@ testNoSolution = TestCase $
         actual = solve eq
     in
     case actual of
-        SpecialCase s -> assertEqual "Ожидался SpecialCase 'No solution'" "No solution (e.g., 5=0)" s
-        _ -> assertFailure "Ожидался SpecialCase, получено другое"
+        SpecialCase s -> assertEqual "Expected SpecialCase 'No solution'" "No solution (e.g., 5=0)" s
+        _ -> assertFailure "Expected SpecialCase, got something else"
 
 testInfiniteSolution :: Test
 testInfiniteSolution = TestCase $
@@ -75,8 +78,8 @@ testInfiniteSolution = TestCase $
         actual = solve eq
     in
     case actual of
-        SpecialCase s -> assertEqual "Ожидался SpecialCase 'Infinite solutions'" "Infinite solutions (0=0)" s
-        _ -> assertFailure "Ожидался SpecialCase, получено другое"
+        SpecialCase s -> assertEqual "Expected SpecialCase 'Infinite solutions'" "Infinite solutions (0=0)" s
+        _ -> assertFailure "Expected SpecialCase, got something else"
 
 
 allTests :: Test
@@ -86,6 +89,7 @@ allTests = TestList
     , "Complex roots"     ~: testComplexRoots
     , "Linear"            ~: testLinearCase
     , "No solutions"      ~: testNoSolution
-    , "Infinity solution" ~: testInfiniteSolution
+    , "Infinite solutions"~: testInfiniteSolution
     ]
+
 
