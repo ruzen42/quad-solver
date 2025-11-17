@@ -17,7 +17,7 @@ data EquationSolution
     | Two Double Double
     | Complex Double Double
     | SpecialCase String
-    deriving (Show)
+    deriving (Eq, Show)
 
 
 getDiscriminant :: Double -> Double -> Double -> Double
