@@ -16,8 +16,9 @@ data EquationSolution
     = One Double
     | Two Double Double
     | Complex Double Double
-    | SpecialCase String
-    deriving (Show)
+    | InfiniteSolutions
+    | NoSolution
+    deriving (Eq, Show)
 
 
 getDiscriminant :: Double -> Double -> Double -> Double
@@ -26,12 +27,10 @@ getDiscriminant a b c = b*b - 4*a*c
 solve :: Equation -> EquationSolution
 solve Equation{..}
     | a == 0.0 =
-        if b == 0.0
-            then if c == 0.0
-                then SpecialCase "Infinite solutions (0=0)"
-                else SpecialCase "No solution (e.g., 5=0)"
-            else
-                One (-c / b)
+        if b == 0.0 then
+            if c == 0.0 then InfiniteSolutions else NoSolution
+        else
+            One (-c / b)
 
     | otherwise =
         let
