@@ -45,10 +45,7 @@ case_linearCase =
         One r -> r @?~ 5
         _ -> assertFailure "Expected one root (One), got something else"
 
-case_noSolution =
-    solve Equation{a = 0, b = 0, c = 5}
-        @?= SpecialCase "No solution (e.g., 5=0)"
+case_noSolution = solve Equation{a = 0, b = 0, c = 5} @?= NoSolution
 
 case_infiniteSolution =
-    solve Equation{a = 0, b = 0, c = 0}
-        @?= SpecialCase "Infinite solutions (0=0)"
+    solve Equation{a = 0, b = 0, c = 0} @?= InfiniteSolutions
