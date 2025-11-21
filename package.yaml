@@ -33,7 +33,7 @@ library:
   source-dirs: src
 
 executables:
-  quad-solver-exe:
+  quad-solver:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
