@@ -9,7 +9,7 @@ import Network.Wai.Handler.Warp (run)
 main :: IO ()
 main = do
     putStrLn "Starting server on port 8082"
-    --run 8082 $ serve (Proxy :: Proxy API) server
+    run 8082 $ serve (Proxy :: Proxy API) server
 
 type API =
     "quad" :> ReqBody '[JSON] Equation :> Post '[JSON] EquationSolution
