@@ -1,4 +1,5 @@
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE DeriveGeneric #-}
 
 module SolveQuad
     ( solve
@@ -6,18 +7,26 @@ module SolveQuad
     , EquationSolution(..)
     ) where
 
+import Data.Aeson (ToJSON, FromJSON)
+import GHC.Generics
+
 data Equation = Equation
     { a :: Double
     , b :: Double
     , c :: Double
-    } deriving (Show)
+    } deriving (Eq, Show, Generic)
 
 data EquationSolution
     = One Double
     | Two Double Double
     | Complex Double Double
     | SpecialCase String
-    deriving (Show)
+    deriving (Eq, Show, Generic)
+
+instance ToJSON Equation
+instance FromJSON Equation
+instance ToJSON EquationSolution
+instance FromJSON EquationSolution
 
 
 getDiscriminant :: Double -> Double -> Double -> Double
