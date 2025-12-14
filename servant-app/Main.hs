@@ -18,5 +18,5 @@ server :: Server API
 server = solveHandler
 
 solveHandler :: Equation -> Handler EquationSolution
-solveHandler eq = return $ solve eq
+solveHandler eq = return sol eq
 
